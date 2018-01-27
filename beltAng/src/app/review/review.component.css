@@ -1,0 +1,30 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+th {
+    border: 2px solid black;
+    padding: 5px;
+}
+
+td {
+    width: 300px;
+    vertical-align: center;
+    border: 2px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.review_data {
+    width: 600px;
+}
+
+.customer_data {
+    width: 50px;
+}
+
+.stars_data {
+    width: 50px;
+    text-align: center;
+}

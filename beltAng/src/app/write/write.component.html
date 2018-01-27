@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> New Review </title>
+</head>
+<body>
+  <form (submit)='newReview()'>
+      <p> {{ restaurant | json }} </p>
+      <label> Your name: </label>
+      <input type='text' name='name' [(ngModel)]='review.customer'>
+      <label> Stars: </label>
+      <input type='number' name='stars' [(ngModel)]='review.stars'>
+      <label> Your review: </label> 
+      <input type='text' name='review' [(ngModel)]='review.review'>
+      <button> Submit </button>
+  </form>
+  <button (click)='cancel()'> Cancel </button>
+  <p> {{ errors }} </p>
+</body>
+</html>

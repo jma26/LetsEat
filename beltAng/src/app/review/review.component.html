@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Review </title>
+</head>
+<body>
+  <button [routerLink]="['/home']"> Back </button>
+  <button [routerLink]="['/write', id]"> New review </button>
+  <div>
+    <table>
+      <tr>
+        <th> Customer </th>
+        <th> Stars </th>
+        <th> Description </th>
+      </tr>
+      <tr *ngFor='let restaurant of restaurants'>
+        <td class='customer_data'> {{ restaurant.customer }} </td>
+        <td class='stars_data'> {{ restaurant.stars }} </td>
+        <td class='review_data'> {{ restaurant.review }} </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

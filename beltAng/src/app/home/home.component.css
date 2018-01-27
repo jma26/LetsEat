@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+th {
+    border: 2px solid black;
+    padding: 5px;
+    font-size: 25px;
+}
+
+td {
+    width: 300px;
+    vertical-align: center;
+    border: 2px solid black;
+    margin: 5px;
+    padding: 5px;
+    font-size: 21px;
+}
+
+a {
+    margin-left: 5px;
+    display: inline-block;
+    font-size: 25px;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+

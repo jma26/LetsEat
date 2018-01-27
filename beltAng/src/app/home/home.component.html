@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Restaurant Reviews </title>
+</head>
+<body>
+  <div>
+      <table>
+        <tr>
+          <th> Restaurant </th>
+          <th> Cuisine </th>
+          <th> Actions available </th>
+        </tr>
+        <tr *ngFor='let restaurant of restaurants'>
+          <td> {{ restaurant.restaurant }} </td>
+          <td> {{ restaurant.cuisine }} </td>
+          <td class='action_link'> <a [routerLink]="['/reviews', restaurant._id]"> Read reviews </a> <a [routerLink]="['/edit', restaurant._id]"> Update </a> <a (click)='delete(restaurant._id)'> Delete </a></td>
+        </tr>
+      </table>
+    </div>
+    <router-outlet></router-outlet>
+</body>
+</html>
+
