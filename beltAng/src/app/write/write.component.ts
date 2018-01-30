@@ -28,9 +28,10 @@ export class WriteComponent implements OnInit {
     this.router.navigate(['/']);
   }
   newReview() {
-    let observable = this._httpService.newReview({review: this.review, id: this.id});
+    let observable = this._httpService.newReview(this.review, this.id);
     observable.subscribe(data => {
       if (data['errors']) {
+        console.log(data);
         this.errors = data['message'];
       } else {
         console.log('Successful update');

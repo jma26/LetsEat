@@ -6,6 +6,7 @@
 th {
     border: 2px solid black;
     padding: 5px;
+    font-size: 25px;
 }
 
 td {
@@ -14,6 +15,7 @@ td {
     border: 2px solid black;
     margin: 5px;
     padding: 5px;
+    font-size: 21px;
 }
 
 .review_data {
@@ -27,4 +29,11 @@ td {
 .stars_data {
     width: 50px;
     text-align: center;
+}
+
+button {
+    padding: 4px;
+    vertical-align: top;
+    font-size: 20px;
+    border-radius: 7px;
 }

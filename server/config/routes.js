@@ -22,7 +22,7 @@ module.exports = function(app) {
     app.get('/restaurant/:id', function(request, response) {
         Restaurants.getOne(request, response)
     })
-    //Delete a restaurant
+    // Delete a restaurant
     app.delete('/restaurant/:id', function(request, response) {
         console.log('Delete restaurant @route.js hit');
         Restaurants.delete(request, response)

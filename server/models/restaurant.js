@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var RestaurantSchema = new mongoose.Schema({
-    restaurant: { type: String, required: [true, 'Restaurant is required'], minlength: [3, 'restaurant name must be at least 3 characters long']},
+    restaurant: { type: String, unique: true,  required: [true, 'Restaurant is required'], minlength: [3, 'restaurant name must be at least 3 characters long']},
     cuisine: { type: String, require: [true, 'Cuisine is required'], minlength: [3, 'cuisine field must be at least 3 characters long']},
     review: [{
         customer: { type: String, minlength: [3, 'Name of customer at least 3 characters long']},

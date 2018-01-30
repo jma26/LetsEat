@@ -17,18 +17,18 @@ export class HttpService {
   getOne(id) {
     return this._http.get('/restaurant/' + id.id);
   }
-  newReview(data) {
+  newReview(data, id) {
     console.log(data.id);
     console.log(data.review.customer);
     console.log(data.review.stars);
-    return this._http.put(`/restaurant/edit/${data.id}`, data);
+    return this._http.put(`/restaurant/edit/${id}`, data);
   }
   delete(id) {
     console.log('HttpService is hit with --->', id.id);
     return this._http.delete(`/restaurant/${id.id}`);
   }
   update(data) {
-    console.log(data);
+    console.log('Data from service.ts --> ',data);
     return this._http.patch(`/restaurant/${data.id}`, data)
   }
 }

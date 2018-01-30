@@ -7,7 +7,8 @@
   <title> Restaurant Reviews </title>
 </head>
 <body>
-  <div>
+    <!-- [routerLink]="['/edit', restaurant._id]" -->
+  <div class='container'>
       <table>
         <tr>
           <th> Restaurant </th>
@@ -17,11 +18,12 @@
         <tr *ngFor='let restaurant of restaurants'>
           <td> {{ restaurant.restaurant }} </td>
           <td> {{ restaurant.cuisine }} </td>
-          <td class='action_link'> <a [routerLink]="['/reviews', restaurant._id]"> Read reviews </a> <a [routerLink]="['/edit', restaurant._id]"> Update </a> <a (click)='delete(restaurant._id)'> Delete </a></td>
-        </tr>
+          <td class='action_link'> <a [routerLink]="['/reviews', restaurant._id]"> Read reviews </a> <a (click)='toggleUpdate(restaurant)'> Update </a> <a (click)='delete(restaurant._id)'> Delete </a></td>
       </table>
+      <div *ngIf='toggleUpdateboolean' class='edit_container'>
+          <app-edit [myRestaurants]='restaurant_info'> </app-edit>
+      </div>
     </div>
-    <router-outlet></router-outlet>
 </body>
 </html>
 

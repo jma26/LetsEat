@@ -12,9 +12,11 @@ module.exports = {
         })
     },
     create: function(request, response) {
+        console.log(request.body);
         var restaurant = new Restaurant({restaurant: request.body.name , cuisine: request.body.cuisine});
         restaurant.save(function(err, result) {
             if (err) {
+                console.log('Unsuccessful creation');
                 response.json(err);
             } else {
                 console.log('Successful creation');
@@ -51,7 +53,7 @@ module.exports = {
     },
     addReview: function(request, response) {
         console.log(request.body);
-        Restaurant.update({_id: request.params.id}, {$push: {review: {customer: request.body.review.customer, stars: request.body.review.stars, review: request.body.review.review }}}, {runValidators: true}, function(err, result) {
+        Restaurant.update({_id: request.params.id}, {$push: {review: request.body}}, {runValidators: true}, function(err, result) {
             if (err) {
                 response.json(err);
             } else {
@@ -78,9 +80,9 @@ module.exports = {
         })
     },
     update: function(request, response) {
+        console.log('Updating now....');
         console.log(request.body);
-        console.log(request.params.id);
-        Restaurant.update({_id: request.params.id}, {$set: {restaurant: request.body.restaurant.name, cuisine: request.body.restaurant.cuisine}}, {runValidators: true}, function(err, result) {
+        Restaurant.update({_id: request.params.id}, {$set: {restaurant: request.body.name, cuisine: request.body.cuisine}}, {runValidators: true}, function(err, result) {
             if (err) {
                 response.json(err);
             } else {

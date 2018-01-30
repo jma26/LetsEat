@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Router } from "@angular/router";
@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+  @Input() myRestaurants: restaurant_info;
   id: any;
   restaurant: any;
   errors: any;
@@ -16,28 +17,29 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.restaurant = {
-      name: '',
-      cuisine: ''
+      name: this.myRestaurants['restaurant'],
+      cuisine: this.myRestaurants['cuisine'],
+      id: this.myRestaurants['_id']
     }
     this.route.params.subscribe(params => {
       this.id = params['id'];
     })
-    this.getOne(this.id);
+    // this.getOne(this.id);
   }
-  getOne(id) {
-    let observable = this._httpService.getOne({id: id});
-    observable.subscribe(data => {
-      this.restaurant = {
-        name: data[0].restaurant,
-        cuisine: data[0].cuisine
-      }
-    })
-  }
+  // getOne(id) {
+  //   let observable = this._httpService.getOne({id: id});
+  //   observable.subscribe(data => {
+  //     this.restaurant = {
+  //       name: data[0].restaurant,
+  //       cuisine: data[0].cuisine
+  //     }
+  //   })
+  // }
   cancel() {
     this.router.navigate(['/']);
   }
   update() {
-    let observable = this._httpService.update({restaurant: this.restaurant, id: this.id});
+    let observable = this._httpService.update(this.restaurant);
     observable.subscribe(data => {
       if (data['errors']) {
         this.errors = data['message'];

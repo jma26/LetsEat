@@ -7,9 +7,8 @@
   <title> Review </title>
 </head>
 <body>
-  <button [routerLink]="['/home']"> Back </button>
-  <button [routerLink]="['/write', id]"> New review </button>
   <div>
+    <h1> Reviews for {{ restaurant_name }} </h1>
     <table>
       <tr>
         <th> Customer </th>
@@ -22,6 +21,8 @@
         <td class='review_data'> {{ restaurant.review }} </td>
       </tr>
     </table>
+    <button [routerLink]="['/home']"> Back </button>
+    <button [routerLink]="['/write', id]"> New review </button>
   </div>
 </body>
 </html>

@@ -27,3 +27,11 @@ a {
     cursor: pointer;
 }
 
+.container {
+    margin-top: 10px;
+}
+
+.edit_container {
+    width: 500px;
+}
+

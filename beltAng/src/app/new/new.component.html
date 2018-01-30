@@ -11,12 +11,13 @@
   <form (submit)='newRestaurant()'>
     <p> {{ restaurant | json }} </p>
     <label> Restaurant name: </label>
-    <input type='text' name='name' [(ngModel)]='restaurant.name'>
+    <input class='field' type='text' name='name' [(ngModel)]='restaurant.name'>
     <label>Cuisine: </label> 
-    <input type='text' name='cuisine' [(ngModel)]='restaurant.cuisine'>
-    <button> Register </button>
+    <input class='field' type='text' name='cuisine' [(ngModel)]='restaurant.cuisine'>
+    <br>
+    <button id='register_button'> Register </button>
+    <input id='cancel_button'type='button' value='Cancel' (click)='cancel()'> 
   </form>
-    <button (click)='cancel()'> Cancel </button> 
   <p> {{ errors }} </p>
 </body>
 </html>

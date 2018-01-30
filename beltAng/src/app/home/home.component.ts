@@ -7,12 +7,15 @@ import { HttpService } from '../http.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  restaurant_info: any;
   restaurants: any;
   errors: any;
+  toggleUpdateboolean: boolean;
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
     this.getRestaurants();
+    this.toggleUpdateboolean = false;
   }
   getRestaurants() {
     let observable = this._httpService.getRestaurants();
@@ -28,6 +31,19 @@ export class HomeComponent implements OnInit {
       console.log(data);
       this.restaurants = data;
     })
+  }
+  //Toggling for update
+  toggleUpdate(restaurant) {
+    if (this.toggleUpdateboolean === false) {
+      this.restaurant_info = restaurant;
+      console.log(this.restaurant_info);
+      this.toggleUpdateboolean = true;
+    } else {
+      this.toggleUpdateboolean = false;
+    }
+  }
+  dataFromEdit(eventData) {
+    console.log(eventData);
   }
 
 }

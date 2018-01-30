@@ -21,6 +21,7 @@ export class NewComponent implements OnInit {
   newRestaurant() {
     let observable = this._httpService.newRestaurant(this.restaurant);
     observable.subscribe(data => {
+      console.log(data);
       if (data['errors']) {
         this.errors = data['message'];
       } else {

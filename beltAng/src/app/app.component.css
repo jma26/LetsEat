@@ -3,3 +3,13 @@
     padding: 0px;
 }
 
+h1, button {
+    display: inline-block;
+}
+
+button {
+    padding: 4px;
+    vertical-align: top;
+    font-size: 20px;
+    border-radius: 7px;
+}

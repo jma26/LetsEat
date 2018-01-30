@@ -1,0 +1,33 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+label {
+    font-size: 21px;
+}
+
+.field {
+    width: 200px;
+    height: 21px;
+}
+
+#cancel_button {
+    width: 100px;
+    padding: 4px;
+    vertical-align: top;
+    font-size: 20px;
+    border-radius: 7px;
+}
+
+button {
+    width: 100px;
+    padding: 4px;
+    vertical-align: top;
+    font-size: 20px;
+    border-radius: 7px;
+}
+
+button, #cancel_button {
+    margin-top: 10px;
+}

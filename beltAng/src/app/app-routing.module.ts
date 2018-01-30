@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'write/:id', component: WriteComponent },
   { path: 'home', component: HomeComponent },
   { path: 'edit/:id', component: EditComponent },
-  { path: '', pathMatch: 'full', redirectTo: '/home'}
+  { path: '', pathMatch: 'full', redirectTo: '/home'},
+  { path: '**', redirectTo: '/home'}
 ];
 
 @NgModule({
