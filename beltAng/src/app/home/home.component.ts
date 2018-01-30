@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
   restaurants: any;
   errors: any;
   toggleUpdateboolean: boolean;
-  constructor(private _httpService: HttpService) { }
+  constructor(private _httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
     this.getRestaurants();
@@ -42,8 +43,9 @@ export class HomeComponent implements OnInit {
       this.toggleUpdateboolean = false;
     }
   }
-  dataFromEdit(eventData) {
-    console.log(eventData);
+  refresh(eventData) {
+    this.restaurants = eventData;
+    this.toggleUpdateboolean = false;
   }
 
 }

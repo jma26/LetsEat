@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Router } from "@angular/router";
@@ -9,7 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  @Input() myRestaurants: restaurant_info;
+  @Input() myRestaurants: any;
+  @Output() RefreshEmitter = new EventEmitter();
   id: any;
   restaurant: any;
   errors: any;
@@ -45,10 +46,14 @@ export class EditComponent implements OnInit {
         this.errors = data['message'];
       } else {
         console.log('Successful update');
-        this.router.navigate(['/']);
+        this.RefreshEmitter.emit(data);
       }
     })
   }
+  // refreshTrigger() {
+  //   let observable = this._httpService.
+  //   this.RefreshEmitter.emit();
+  // }
 
 }
 

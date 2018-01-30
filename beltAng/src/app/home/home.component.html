@@ -7,6 +7,7 @@
   <title> Restaurant Reviews </title>
 </head>
 <body>
+    <button [routerLink]="['new']"> New restaurant </button>
     <!-- [routerLink]="['/edit', restaurant._id]" -->
   <div class='container'>
       <table>
@@ -21,7 +22,7 @@
           <td class='action_link'> <a [routerLink]="['/reviews', restaurant._id]"> Read reviews </a> <a (click)='toggleUpdate(restaurant)'> Update </a> <a (click)='delete(restaurant._id)'> Delete </a></td>
       </table>
       <div *ngIf='toggleUpdateboolean' class='edit_container'>
-          <app-edit [myRestaurants]='restaurant_info'> </app-edit>
+          <app-edit [myRestaurants]='restaurant_info' (RefreshEmitter)='refresh($event)'> </app-edit>
       </div>
     </div>
 </body>

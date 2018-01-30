@@ -41,16 +41,16 @@ module.exports = {
             }
         })
     },
-    edit: function(request, response) {
-        Product.findOneAndUpdate({_id: request.params.id}, {$set: {title: request.body.title, price: request.body.price, image_url: request.body.url}}, { runValidators: true, new: true }, function(err, result) {
-            console.log('Edit controllers is hit');
-            if (err) {
-                response.json(err);
-            } else {
-                response.json(result);
-            }
-        })
-    },
+    // edit: function(request, response) {
+    //     Product.findOneAndUpdate({_id: request.params.id}, {$set: {title: request.body.title, price: request.body.price, image_url: request.body.url}}, { runValidators: true, new: true }, function(err, result) {
+    //         console.log('Edit controllers is hit');
+    //         if (err) {
+    //             response.json(err);
+    //         } else {
+                    // response.json(err);
+    //         }
+    //     })
+    // },
     addReview: function(request, response) {
         console.log(request.body);
         Restaurant.update({_id: request.params.id}, {$push: {review: request.body}}, {runValidators: true}, function(err, result) {
@@ -86,7 +86,13 @@ module.exports = {
             if (err) {
                 response.json(err);
             } else {
-                response.json(result);
+                Restaurant.find({}).sort('-_id').exec(function(err, result) {
+                    if (err) {
+                        response.json(err);
+                    } else {
+                        response.json(result);
+                    }
+                })
             }
         } )
     }

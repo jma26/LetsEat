@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: 'reviews/:id', component: ReviewComponent },
   { path: 'write/:id', component: WriteComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'edit/:id', component: EditComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home'},
   { path: '**', redirectTo: '/home'}
 ];
